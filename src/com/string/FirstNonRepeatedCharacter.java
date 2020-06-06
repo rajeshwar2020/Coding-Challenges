@@ -11,6 +11,25 @@ public class FirstNonRepeatedCharacter {
 		
 		String input = "AABCDBEFC";
 		
+		//Approach-1: without using collections
+		for (int i=0; i<input.length(); i++) {
+			boolean unique = true;
+			
+			for (int j=0; j<input.length(); j++) {
+				
+				if(i!=j && input.charAt(i) == input.charAt(j)) {
+					unique = false;
+					break;
+				}
+			}
+			
+			if (unique) {
+				System.out.println("First Non-repeated character is: "+input.charAt(i));
+				break;
+			}
+		}
+		
+		//Approach-2: Using collections.
 		Map<Character,Integer> map = new HashMap<Character,Integer>();
 		
 		//loop for adding characters to map
@@ -52,22 +71,6 @@ public class FirstNonRepeatedCharacter {
 
 
 
-//Approach-1
-//		for (int i=0; i<input.length(); i++) {
-//			boolean unique = true;
-//			
-//			for (int j=0; j<input.length(); j++) {
-//				
-//				if(i!=j && input.charAt(i) == input.charAt(j)) {
-//					unique = false;
-//					break;
-//				}
-//			}
-//			
-//			if (unique) {
-//				System.out.println("First Non-repeated character is: "+input.charAt(i));
-//				break;
-//			}
-//		}
+
 
 
